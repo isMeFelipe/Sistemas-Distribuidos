@@ -8,6 +8,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::get('/', function () {
-    return response()->json(['message' => 'Hello World!']);
+Route::get('/server1', function () {
+    return response()->json(['message' => 'AQUI É DO SERVIDOR 1 BUCETA']);
+});
+
+Route::get('/server2', function () {
+    return response()->json(['message' => 'AQUI É DO SERVIDOR 2 PRIQUITO']);
 });

@@ -17,5 +17,14 @@
 
 
 
-# Inicar Servidor
-php artisan serve
+# Inicar Servidor # porta 8000 # porta 80001
+php artisan serve 
+
+
+
+
+# iniciar cliente
+npm install
+
+# rodar cliente
+npm run dev
