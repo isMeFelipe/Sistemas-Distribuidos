@@ -1,0 +1,21 @@
+# COMANDOS INICIAIS
+    # Instalar Dependencias
+    composer install
+
+    # Gerar chave 
+    php artisan key:generate
+
+# Alterar .env
+    # Tem que criar a database antes
+    
+    DB_CONNECTION=pgsql
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_DATABASE=<nome_da_base>
+    DB_USERNAME=<ususario>
+    DB_PASSWORD=<senha>
+
+
+
+# Inicar Servidor
+php artisan serve
