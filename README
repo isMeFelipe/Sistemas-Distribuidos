@@ -1,9 +1,13 @@
 # COMANDOS INICIAIS
     # Instalar Dependencias
     composer install
+    npm install
 
     # Gerar chave 
     php artisan key:generate
+
+    # No BANCO (psql shell) rodar o comando:
+    CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 # Alterar .env
     # Tem que criar a database antes
@@ -15,12 +19,11 @@
     DB_USERNAME=<ususario>
     DB_PASSWORD=<senha>
 
-
+# Iniciar banco
+php artisan migrate
 
 # Inicar Servidor # porta 8000 # porta 80001
 php artisan serve 
-
-
 
 
 # iniciar cliente
@@ -28,3 +31,5 @@ npm install
 
 # rodar cliente
 npm run dev
+
+

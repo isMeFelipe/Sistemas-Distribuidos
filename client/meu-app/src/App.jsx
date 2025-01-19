@@ -1,37 +1,26 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from './routes/api'; // Importe a instância personalizada
 import './App.css';
-
+import ListAttendance from './components/ListAttendance';
+import ServerStatusCheck from './components/ServerStatusCheck';
 function App() {
-  const [response, setResponse] = useState(''); // Inicializa como string vazia
+  const [response, setResponse] = useState('');
 
-  function handleClick() {
-    axios.get('http://127.0.0.1:8000/api/server1')
-      .then((response) => {
-        setResponse(response.data.message);
-      })
-      .catch((error) => {
-        axios.get('http://127.0.0.1:8001/api/server2')
-          .then((response) => {
-            setResponse(response.data.message);
-          }).catch((error) => {
-            console.error('Erro na requisição:', error);
-          });
-      });
-  }
+  const handleClick = async () => {
+    try {
+      const { data } = await api.get('/server1'); // Requisição usando a instância
+      setResponse(data.message);
+    } catch (error) {
+      console.error('Erro ao fazer requisição:', error.message);
+      setResponse('Erro ao obter dados.');
+    }
+  };
 
   return (
     <>
-      <div>
-        <h1>Home Page</h1>
-        <p>Conteúdo da página Home.</p>
-
-        <button onClick={handleClick}>
-          Fazer Requisição
-        </button>
-
-        {/* Renderiza o conteúdo de response */}
-        {response && <h2>{response}</h2>}
+      <div style={{ textAlign: 'center', marginTop: 100, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+        <ListAttendance />
+        <ServerStatusCheck />
       </div>
     </>
   );
